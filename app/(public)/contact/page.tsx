@@ -70,8 +70,8 @@ export default function ContactPage() {
                         Adresse
                       </h3>
                       <p className="text-gray-600">
-                        ONG VISA DAM<br />
-                        Bénin
+                        ONG VISA <br />
+                        Togo
                       </p>
                     </div>
                   </div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
                       <h3 className="font-semibold text-gray-900 mb-1">
                         Téléphone
                       </h3>
-                      <p className="text-gray-600">+229 90 62 96 93</p>
+                      <p className="text-gray-600">+228 90 62 96 93</p>
                       <p className="text-sm text-gray-500 mt-1">
                         Lun-Ven, 9h-18h
                       </p>
