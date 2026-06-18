@@ -2,11 +2,8 @@ import { Pool } from 'pg';
 
 // Create a PostgreSQL connection pool
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'visa',
-  password: 'postgres',
-  port: 5432,
+  connectionString: process.env.POSTGRES_URL,
+  ssl: process.env.POSTGRES_URL?.includes('localhost') ? undefined : { rejectUnauthorized: false },
 });
 
 let initialized = false;
