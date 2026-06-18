@@ -1,0 +1,536 @@
+import { Cancer } from '@/types/cancer';
+
+export const cancers: Cancer[] = [
+  {
+    id: 'breast-cancer',
+    name: 'Cancer du Sein',
+    color: '#EC4899',
+    image: '/images/breast-cancer.jpg',
+    shortDescription: 'Le cancer du sein est le cancer le plus fréquent chez les femmes dans le monde.',
+    description: 'Le cancer du sein se développe à partir des cellules de la glande mammaire. Il existe plusieurs types de cancers du sein, mais les plus fréquents sont les carcinomes.',
+    epidemiology: 'Le cancer du sein touche environ 1 femme sur 8 au cours de sa vie. En 2023, plus de 60 000 nouveaux cas ont été diagnostiqués en France.',
+    riskPopulation: 'Femmes de plus de 50 ans, antécédents familiaux, mutations génétiques (BRCA1/BRCA2), exposition aux hormones.',
+    riskFactors: {
+      modifiable: [
+        'Consommation d\'alcool',
+        'Surpoids et obésité après la ménopause',
+        'Manque d\'activité physique',
+        'Traitement hormonal substitutif prolongé',
+        'Tabagisme'
+      ],
+      nonModifiable: [
+        'Âge (plus de 50 ans)',
+        'Antécédents familiaux de cancer du sein',
+        'Mutations génétiques BRCA1 et BRCA2',
+        'Première menstruation précoce',
+        'Ménopause tardive'
+      ]
+    },
+    symptoms: {
+      early: [
+        'Boule ou masse dans le sein',
+        'Modification de la taille ou de la forme du sein',
+        'Changement de la peau du sein (rétraction, rougeur)',
+        'Écoulement du mamelon'
+      ],
+      advanced: [
+        'Douleur persistante',
+        'Gonflement du bras',
+        'Ulcération de la peau',
+        'Ganglions sous le bras palpables'
+      ],
+      warningSign: [
+        'Toute masse ou boule détectée',
+        'Changement récent de l\'apparence du sein',
+        'Écoulement sanglant du mamelon',
+        'Rétraction du mamelon'
+      ]
+    },
+    screening: {
+      primaryPrevention: [
+        'Maintenir un poids santé',
+        'Pratiquer une activité physique régulière',
+        'Limiter la consommation d\'alcool',
+        'Éviter le tabac',
+        'Allaiter si possible'
+      ],
+      availableTests: [
+        'Mammographie',
+        'Échographie mammaire',
+        'IRM mammaire',
+        'Auto-examen des seins',
+        'Examen clinique par un professionnel'
+      ],
+      recommendations: [
+        {
+          ageGroup: '20-39 ans',
+          frequency: 'Mensuel (auto-examen)',
+          tests: ['Auto-examen des seins', 'Examen clinique tous les 3 ans']
+        },
+        {
+          ageGroup: '40-49 ans',
+          frequency: 'Tous les 1-2 ans',
+          tests: ['Mammographie', 'Examen clinique annuel']
+        },
+        {
+          ageGroup: '50-74 ans',
+          frequency: 'Tous les 2 ans',
+          tests: ['Mammographie de dépistage', 'Examen clinique']
+        },
+        {
+          ageGroup: 'Plus de 75 ans',
+          frequency: 'Selon avis médical',
+          tests: ['Mammographie si indiqué']
+        }
+      ],
+      resultsInterpretation: 'Les résultats sont classés selon le système BI-RADS (0 à 6). Un résultat normal ne nécessite pas d\'examen complémentaire immédiat. En cas d\'anomalie, des examens supplémentaires seront proposés.',
+      screeningCenters: [
+        'Centres de radiologie agréés',
+        'Hôpitaux publics',
+        'Cliniques privées',
+        'Centres de dépistage organisé'
+      ]
+    },
+    testimonials: [
+      {
+        id: 't1',
+        name: 'Marie D.',
+        story: 'Diagnostiquée à 52 ans, j\'ai découvert une petite masse lors de mon auto-examen mensuel.',
+        message: 'Le dépistage précoce m\'a sauvé la vie. N\'attendez pas, faites-vous dépister !',
+        date: '2024-01-15'
+      }
+    ],
+    resources: [
+      {
+        title: 'Guide du dépistage du cancer du sein',
+        description: 'Brochure complète sur les méthodes de dépistage',
+        url: '/resources/breast-cancer-screening.pdf',
+        type: 'pdf'
+      }
+    ]
+  },
+  {
+    id: 'prostate-cancer',
+    name: 'Cancer de la Prostate',
+    color: '#3B82F6',
+    image: '/images/prostate-cancer.jpg',
+    shortDescription: 'Le cancer de la prostate est le cancer le plus fréquent chez l\'homme.',
+    description: 'Le cancer de la prostate se développe dans la glande prostatique. C\'est un cancer généralement d\'évolution lente.',
+    epidemiology: 'Il représente 25% des cancers masculins. Plus de 50 000 nouveaux cas sont diagnostiqués chaque année en France.',
+    riskPopulation: 'Hommes de plus de 50 ans, antécédents familiaux, origine africaine ou caribéenne.',
+    riskFactors: {
+      modifiable: [
+        'Alimentation riche en graisses animales',
+        'Surpoids et obésité',
+        'Sédentarité',
+        'Consommation excessive de produits laitiers'
+      ],
+      nonModifiable: [
+        'Âge (plus de 50 ans)',
+        'Antécédents familiaux',
+        'Origine ethnique (risque plus élevé chez les hommes d\'ascendance africaine)',
+        'Mutations génétiques'
+      ]
+    },
+    symptoms: {
+      early: [
+        'Souvent asymptomatique aux stades précoces',
+        'Difficultés à uriner',
+        'Jet urinaire faible',
+        'Besoin fréquent d\'uriner, surtout la nuit'
+      ],
+      advanced: [
+        'Sang dans les urines ou le sperme',
+        'Douleurs osseuses',
+        'Dysfonction érectile',
+        'Perte de poids inexpliquée'
+      ],
+      warningSign: [
+        'Changement dans les habitudes urinaires',
+        'Présence de sang dans les urines',
+        'Douleurs pelviennes persistantes',
+        'Douleurs osseuses'
+      ]
+    },
+    screening: {
+      primaryPrevention: [
+        'Adopter une alimentation équilibrée riche en fruits et légumes',
+        'Maintenir un poids santé',
+        'Pratiquer une activité physique régulière',
+        'Limiter la consommation de viandes rouges et graisses animales'
+      ],
+      availableTests: [
+        'Dosage du PSA (Antigène Prostatique Spécifique)',
+        'Toucher rectal',
+        'IRM prostatique',
+        'Biopsie prostatique si nécessaire'
+      ],
+      recommendations: [
+        {
+          ageGroup: '50-75 ans',
+          frequency: 'Tous les 2-4 ans',
+          tests: ['Dosage PSA', 'Toucher rectal']
+        },
+        {
+          ageGroup: '45 ans et plus (à risque)',
+          frequency: 'Annuel',
+          tests: ['Dosage PSA', 'Examen clinique']
+        },
+        {
+          ageGroup: 'Plus de 75 ans',
+          frequency: 'Selon avis médical',
+          tests: ['Selon l\'état de santé général']
+        }
+      ],
+      resultsInterpretation: 'Un taux de PSA normal est généralement inférieur à 4 ng/ml. Un taux élevé ne signifie pas nécessairement un cancer. Des examens complémentaires sont nécessaires pour confirmer le diagnostic.',
+      screeningCenters: [
+        'Cabinets d\'urologie',
+        'Hôpitaux et cliniques',
+        'Centres de santé',
+        'Laboratoires d\'analyses médicales'
+      ]
+    },
+    testimonials: [],
+    resources: []
+  },
+  {
+    id: 'lung-cancer',
+    name: 'Cancer du Poumon',
+    color: '#6B7280',
+    image: '/images/lung-cancer.jpg',
+    shortDescription: 'Le cancer du poumon est l\'un des cancers les plus mortels, souvent lié au tabagisme.',
+    description: 'Le cancer du poumon se développe dans les cellules des bronches, bronchioles ou alvéoles pulmonaires.',
+    epidemiology: 'Environ 46 000 nouveaux cas par an en France. C\'est la première cause de décès par cancer.',
+    riskPopulation: 'Fumeurs, anciens fumeurs, exposition professionnelle aux substances cancérigènes.',
+    riskFactors: {
+      modifiable: [
+        'Tabagisme (85-90% des cas)',
+        'Tabagisme passif',
+        'Exposition au radon',
+        'Exposition professionnelle (amiante, arsenic)',
+        'Pollution de l\'air'
+      ],
+      nonModifiable: [
+        'Antécédents familiaux',
+        'Antécédents de maladies pulmonaires',
+        'Âge (risque augmente après 50 ans)'
+      ]
+    },
+    symptoms: {
+      early: [
+        'Toux persistante ou qui s\'aggrave',
+        'Essoufflement',
+        'Douleur thoracique',
+        'Infections respiratoires fréquentes'
+      ],
+      advanced: [
+        'Crachats sanglants',
+        'Perte de poids importante',
+        'Fatigue extrême',
+        'Enrouement de la voix',
+        'Douleurs osseuses'
+      ],
+      warningSign: [
+        'Toux persistante pendant plus de 3 semaines',
+        'Crachats avec du sang',
+        'Essoufflement inhabituel',
+        'Douleur thoracique persistante'
+      ]
+    },
+    screening: {
+      primaryPrevention: [
+        'Ne pas fumer ou arrêter de fumer',
+        'Éviter le tabagisme passif',
+        'Protéger contre l\'exposition au radon',
+        'Porter des équipements de protection en milieu professionnel',
+        'Réduire l\'exposition à la pollution'
+      ],
+      availableTests: [
+        'Scanner thoracique faible dose',
+        'Radiographie pulmonaire',
+        'Bronchoscopie',
+        'Biopsie pulmonaire'
+      ],
+      recommendations: [
+        {
+          ageGroup: '50-80 ans (fumeurs)',
+          frequency: 'Annuel',
+          tests: ['Scanner thoracique faible dose']
+        },
+        {
+          ageGroup: 'Fumeurs de plus de 30 paquets-années',
+          frequency: 'Annuel',
+          tests: ['Scanner thoracique']
+        }
+      ],
+      resultsInterpretation: 'Le scanner peut révéler des nodules pulmonaires. Tous les nodules ne sont pas cancéreux. Des examens complémentaires permettent de caractériser leur nature.',
+      screeningCenters: [
+        'Services de pneumologie',
+        'Centres d\'imagerie médicale',
+        'Hôpitaux universitaires',
+        'Consultations de tabacologie'
+      ]
+    },
+    testimonials: [],
+    resources: []
+  },
+  {
+    id: 'colorectal-cancer',
+    name: 'Cancer Colorectal',
+    color: '#92400E',
+    image: '/images/colorectal-cancer.jpg',
+    shortDescription: 'Le cancer colorectal affecte le côlon ou le rectum et peut être prévenu par le dépistage.',
+    description: 'Le cancer colorectal se développe à partir de polypes dans la muqueuse du côlon ou du rectum.',
+    epidemiology: 'Environ 43 000 nouveaux cas par an en France. C\'est le 3ème cancer le plus fréquent.',
+    riskPopulation: 'Personnes de plus de 50 ans, antécédents familiaux, maladies inflammatoires de l\'intestin.',
+    riskFactors: {
+      modifiable: [
+        'Alimentation riche en viandes rouges et transformées',
+        'Faible consommation de fibres',
+        'Surpoids et obésité',
+        'Sédentarité',
+        'Consommation d\'alcool',
+        'Tabagisme'
+      ],
+      nonModifiable: [
+        'Âge (plus de 50 ans)',
+        'Antécédents personnels de polypes ou cancer colorectal',
+        'Antécédents familiaux',
+        'Maladies inflammatoires chroniques de l\'intestin',
+        'Syndromes génétiques (Lynch, polypose familiale)'
+      ]
+    },
+    symptoms: {
+      early: [
+        'Changement des habitudes intestinales',
+        'Sang dans les selles',
+        'Douleurs abdominales',
+        'Ballonnements persistants'
+      ],
+      advanced: [
+        'Anémie',
+        'Perte de poids inexpliquée',
+        'Fatigue extrême',
+        'Occlusion intestinale',
+        'Douleurs rectales'
+      ],
+      warningSign: [
+        'Sang visible dans les selles',
+        'Changement des habitudes intestinales durant plus de 3 semaines',
+        'Douleurs abdominales persistantes',
+        'Perte de poids inexpliquée'
+      ]
+    },
+    screening: {
+      primaryPrevention: [
+        'Adopter une alimentation riche en fibres (fruits, légumes, céréales complètes)',
+        'Limiter la viande rouge et la charcuterie',
+        'Maintenir un poids santé',
+        'Pratiquer une activité physique régulière',
+        'Limiter l\'alcool et éviter le tabac'
+      ],
+      availableTests: [
+        'Test immunologique de recherche de sang dans les selles (FIT)',
+        'Coloscopie',
+        'Sigmoïdoscopie',
+        'Coloscopie virtuelle (coloscanner)'
+      ],
+      recommendations: [
+        {
+          ageGroup: '50-74 ans',
+          frequency: 'Tous les 2 ans',
+          tests: ['Test immunologique FIT']
+        },
+        {
+          ageGroup: 'Tous âges (risque élevé)',
+          frequency: 'Selon avis médical',
+          tests: ['Coloscopie']
+        }
+      ],
+      resultsInterpretation: 'Un test FIT positif nécessite une coloscopie. La coloscopie permet de visualiser l\'intérieur du côlon et de retirer les polypes avant qu\'ils ne deviennent cancéreux.',
+      screeningCenters: [
+        'Cabinets de gastro-entérologie',
+        'Hôpitaux et cliniques',
+        'Centres de dépistage organisé',
+        'Laboratoires d\'analyses (pour le test FIT)'
+      ]
+    },
+    testimonials: [],
+    resources: []
+  },
+  {
+    id: 'cervical-cancer',
+    name: 'Cancer du Col de l\'Utérus',
+    color: '#7C3AED',
+    image: '/images/cervical-cancer.jpg',
+    shortDescription: 'Le cancer du col de l\'utérus est principalement causé par le papillomavirus humain (HPV).',
+    description: 'Le cancer du col de l\'utérus se développe à partir des cellules du col utérin, généralement après une infection persistante par le HPV.',
+    epidemiology: 'Environ 3 000 nouveaux cas par an en France. L\'incidence a diminué grâce au dépistage et à la vaccination.',
+    riskPopulation: 'Femmes non vaccinées contre le HPV, absence de dépistage régulier, infections HPV persistantes.',
+    riskFactors: {
+      modifiable: [
+        'Absence de vaccination contre le HPV',
+        'Tabagisme',
+        'Système immunitaire affaibli',
+        'Infections sexuellement transmissibles multiples',
+        'Absence de dépistage régulier'
+      ],
+      nonModifiable: [
+        'Infection persistante par HPV à haut risque',
+        'Précocité des rapports sexuels',
+        'Nombre élevé de partenaires sexuels',
+        'Antécédents de lésions précancéreuses'
+      ]
+    },
+    symptoms: {
+      early: [
+        'Souvent asymptomatique',
+        'Saignements après les rapports sexuels',
+        'Saignements entre les règles',
+        'Pertes vaginales inhabituelles'
+      ],
+      advanced: [
+        'Saignements abondants',
+        'Douleurs pelviennes',
+        'Douleurs pendant les rapports',
+        'Problèmes urinaires ou intestinaux',
+        'Perte de poids'
+      ],
+      warningSign: [
+        'Saignements après la ménopause',
+        'Saignements après les rapports',
+        'Pertes vaginales anormales ou malodorantes',
+        'Douleurs pelviennes inexpliquées'
+      ]
+    },
+    screening: {
+      primaryPrevention: [
+        'Vaccination contre le HPV (recommandée entre 11 et 14 ans)',
+        'Pratiques sexuelles protégées',
+        'Arrêt du tabac',
+        'Renforcement du système immunitaire',
+        'Dépistage régulier'
+      ],
+      availableTests: [
+        'Frottis cervico-utérin (test Pap)',
+        'Test HPV',
+        'Colposcopie si anomalie détectée',
+        'Biopsie cervicale'
+      ],
+      recommendations: [
+        {
+          ageGroup: '25-29 ans',
+          frequency: 'Tous les 3 ans',
+          tests: ['Frottis cervico-utérin']
+        },
+        {
+          ageGroup: '30-65 ans',
+          frequency: 'Tous les 5 ans',
+          tests: ['Test HPV', 'Ou frottis tous les 3 ans']
+        },
+        {
+          ageGroup: 'Plus de 65 ans',
+          frequency: 'Selon avis médical',
+          tests: ['Si dépistages antérieurs normaux, arrêt possible']
+        }
+      ],
+      resultsInterpretation: 'Les résultats du frottis sont classés selon le système Bethesda. Un résultat normal signifie aucune anomalie cellulaire. Des anomalies légères peuvent nécessiter un suivi, tandis que des anomalies importantes requièrent des examens complémentaires.',
+      screeningCenters: [
+        'Cabinets de gynécologie',
+        'Centres de planification familiale',
+        'Centres de santé',
+        'Sages-femmes',
+        'Médecins généralistes'
+      ]
+    },
+    testimonials: [],
+    resources: []
+  },
+  {
+    id: 'pancreatic-cancer',
+    name: 'Cancer du Pancréas',
+    color: '#EA580C',
+    image: '/images/pancreatic-cancer.jpg',
+    shortDescription: 'Le cancer du pancréas est souvent diagnostiqué tardivement en raison de symptômes peu spécifiques.',
+    description: 'Le cancer du pancréas se développe dans les cellules du pancréas, un organe situé derrière l\'estomac qui joue un rôle dans la digestion et la régulation du sucre.',
+    epidemiology: 'Environ 14 000 nouveaux cas par an en France. C\'est un cancer de mauvais pronostic en raison d\'un diagnostic souvent tardif.',
+    riskPopulation: 'Fumeurs, personnes diabétiques, obèses, ou ayant des antécédents familiaux.',
+    riskFactors: {
+      modifiable: [
+        'Tabagisme (responsable de 25% des cas)',
+        'Surpoids et obésité',
+        'Diabète de type 2',
+        'Alimentation riche en graisses et viandes rouges',
+        'Consommation excessive d\'alcool',
+        'Pancréatite chronique'
+      ],
+      nonModifiable: [
+        'Âge (plus de 60 ans)',
+        'Antécédents familiaux de cancer du pancréas',
+        'Syndromes génétiques héréditaires',
+        'Pancréatite héréditaire',
+        'Certaines mutations génétiques (BRCA2, PALB2)'
+      ]
+    },
+    symptoms: {
+      early: [
+        'Souvent asymptomatique',
+        'Douleurs abdominales vagues',
+        'Perte d\'appétit',
+        'Inconfort digestif'
+      ],
+      advanced: [
+        'Jaunisse (ictère)',
+        'Douleurs abdominales intenses irradiant dans le dos',
+        'Perte de poids importante',
+        'Diabète d\'apparition récente',
+        'Nausées et vomissements',
+        'Selles décolorées'
+      ],
+      warningSign: [
+        'Apparition soudaine d\'une jaunisse',
+        'Douleurs abdominales persistantes',
+        'Perte de poids inexpliquée et rapide',
+        'Diabète d\'apparition récente sans facteur de risque'
+      ]
+    },
+    screening: {
+      primaryPrevention: [
+        'Arrêter de fumer',
+        'Maintenir un poids santé',
+        'Adopter une alimentation équilibrée',
+        'Limiter la consommation d\'alcool',
+        'Contrôler le diabète',
+        'Traiter la pancréatite chronique'
+      ],
+      availableTests: [
+        'Scanner abdominal',
+        'IRM abdominale',
+        'Échoendoscopie',
+        'Dosage du CA 19-9 (marqueur tumoral)',
+        'Biopsie pancréatique'
+      ],
+      recommendations: [
+        {
+          ageGroup: 'Population générale',
+          frequency: 'Pas de dépistage systématique',
+          tests: ['Surveillance si facteurs de risque']
+        },
+        {
+          ageGroup: 'Risque familial élevé',
+          frequency: 'Annuel',
+          tests: ['IRM/Échoendoscopie à partir de 50 ans ou 10 ans avant l\'âge du cas familial']
+        }
+      ],
+      resultsInterpretation: 'Il n\'existe pas de test de dépistage standard pour le cancer du pancréas. Les examens d\'imagerie permettent de détecter des anomalies, mais le diagnostic définitif nécessite souvent une biopsie.',
+      screeningCenters: [
+        'Services de gastro-entérologie',
+        'Centres d\'imagerie spécialisés',
+        'Hôpitaux universitaires',
+        'Consultations d\'oncogénétique (cas familiaux)'
+      ]
+    },
+    testimonials: [],
+    resources: []
+  }
+];

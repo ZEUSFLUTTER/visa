@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "title": "10 Habitudes Quotidiennes pour Réduire le Risque de Cancer",
+    "slug": "10-habitudes-prevention-cancer",
+    "excerpt": "Découvrez les gestes simples du quotidien qui peuvent faire une grande différence dans la prévention du cancer.",
+    "image": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&q=80&w=800",
+    "content": "La prévention du cancer commence par des choix quotidiens sains. Près de 40% des cancers pourraient être évités en adoptant des habitudes de vie adaptées. Voici 10 conseils scientifiquement prouvés pour réduire votre risque :\n\n1. **Adoptez une alimentation riche en fibres et végétaux** : Intégrez plus de fruits, légumes, céréales complètes et légumineuses à vos repas.\n2. **Pratiquez une activité physique régulière** : Visez au moins 30 minutes de marche rapide ou autre sport par jour.\n3. **Évitez le tabac** : Le tabagisme reste la première cause de cancers évitables dans le monde.\n4. **Limitez votre consommation d'alcool** : Même à faible dose, l'alcool augmente le risque de plusieurs cancers.\n5. **Protégez-vous du soleil** : Utilisez de la crème solaire et évitez les cabines de bronzage.\n6. **Maintenez un poids santé** : L'excès de poids est lié à de nombreux types de cancers.\n7. **Faites-vous vacciner** : Le vaccin contre le VPH prévient les cancers du col de l'utérus, et le vaccin contre l'hépatite B protège le foie.\n8. **Évitez les polluants et toxines autant que possible** : Portez des équipements de protection si vous travaillez avec des produits dangereux.\n9. **Dormez suffisamment** : Le manque chronique de sommeil affaiblit le système immunitaire.\n10. **Participez aux campagnes de dépistage** : Détecter un cancer tôt augmente considérablement les chances de guérison.",
+    "author": "Dr. Marie Laurent",
+    "publishedDate": "2024-02-15",
+    "readTime": 8,
+    "category": "Prévention",
+    "tags": [
+      "prévention",
+      "habitudes",
+      "santé"
+    ],
+    "published": true
+  },
+  {
+    "id": "2",
+    "title": "Les Avancées Récentes dans le Traitement du Cancer du Sein",
+    "slug": "avancees-traitement-cancer-sein",
+    "excerpt": "Un aperçu des nouvelles thérapies et techniques de traitement qui transforment la prise en charge du cancer du sein.",
+    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
+    "content": "La recherche contre le cancer du sein progresse à pas de géant. De nouvelles thérapies personnalisées et des techniques chirurgicales plus précises offrent aujourd'hui de meilleurs taux de guérison et une meilleure qualité de vie aux patientes.\n\n### Les thérapies ciblées\nContrairement à la chimiothérapie classique, les thérapies ciblées s'attaquent spécifiquement aux anomalies moléculaires des cellules cancéreuses sans détruire les cellules saines. Par exemple, les inhibiteurs de CDK4/6 révolutionnent le traitement des cancers hormono-dépendants.\n\n### L'immunothérapie\nCette approche stimule le système immunitaire de la patiente pour l'aider à reconnaître et détruire les cellules cancéreuses. Elle est de plus en plus utilisée pour les cancers du sein triple négatifs, qui sont souvent plus agressifs.\n\n### La chirurgie mini-invasive\nLes techniques chirurgicales sont désormais plus conservatrices (tumorectomie), préservant au maximum l'apparence physique tout en garantissant l'éradication de la tumeur.",
+    "author": "Dr. Sophie Dubois",
+    "publishedDate": "2024-02-10",
+    "readTime": 10,
+    "category": "Actualités",
+    "tags": [
+      "traitement",
+      "cancer du sein",
+      "innovation"
+    ],
+    "published": true
+  },
+  {
+    "id": "3",
+    "title": "L'Importance du Soutien Psychologique pendant le Traitement",
+    "slug": "soutien-psychologique-traitement",
+    "excerpt": "Comment le soutien psychologique peut améliorer la qualité de vie des patients atteints de cancer.",
+    "image": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&q=80&w=800",
+    "content": "Le diagnostic d'un cancer est un séisme émotionnel. Au-delà des soins médicaux et physiques, l'accompagnement psychologique est un pilier essentiel du parcours de guérison.\n\n### Pourquoi consulter un psycho-oncologue ?\nLa peur de la maladie, l'anxiété liée aux traitements, la fatigue et les changements d'image corporelle peuvent générer une grande détresse. Un professionnel de la psychologie offre un espace d'écoute neutre pour exprimer ses craintes et apprendre à gérer le stress.\n\n### Le soutien de la communauté et des proches\nParticiper à des groupes de parole permet de rompre l'isolement en partageant son vécu avec d'autres patients. De plus, l'accompagnement s'adresse également aux proches et aidants qui ont eux aussi besoin de soutien pour accompagner leur parent malade.",
+    "author": "Psychologue Claire Martin",
+    "publishedDate": "2024-02-05",
+    "readTime": 6,
+    "category": "Bien-être",
+    "tags": [
+      "psychologie",
+      "soutien",
+      "bien-être"
+    ],
+    "published": true
+  }
+]
