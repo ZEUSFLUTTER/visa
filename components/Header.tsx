@@ -18,7 +18,6 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { href: '/', label: 'Accueil' },
     { href: '/cancers', label: 'Tous les Cancers' },
     { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
@@ -28,8 +27,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white shadow-md py-2'
-          : 'bg-white/95 backdrop-blur-sm py-4'
+          ? 'bg-pink-50 shadow-md py-2'
+          : 'bg-pink-50/95 backdrop-blur-sm py-4'
       }`}
     >
       <div className="container mx-auto px-4">

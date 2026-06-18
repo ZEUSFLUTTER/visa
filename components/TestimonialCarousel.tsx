@@ -18,10 +18,10 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000); // Change toutes les 5 secondes
+    }, 6000); // Change toutes les 6 secondes (plus de temps pour lire)
 
     return () => clearInterval(interval);
-  }, [testimonials.length]); // Dépendance sur la longueur, pas sur currentIndex
+  }, [testimonials.length]);
 
   const nextSlide = () => {
     if (isAnimating) return;
