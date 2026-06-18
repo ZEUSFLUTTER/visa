@@ -39,7 +39,7 @@ export default function Header() {
             <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 bg-white">
               <Image
                 src="/logo.png"
-                alt="Logo VISA DAM"
+                alt="Logo VISA"
                 width={64}
                 height={64}
                 className="w-full h-full object-contain p-1"
