@@ -108,18 +108,7 @@ export default function AdminLogin() {
           </form>
 
           {/* Info Box */}
-          <div className="mt-6 p-4 bg-purple-50 rounded-lg border border-purple-200">
-            <p className="text-sm text-purple-800 font-semibold mb-2">
-              🔑 Identifiants par défaut :
-            </p>
-            <p className="text-sm text-purple-700">
-              <strong>Utilisateur :</strong> admin<br />
-              <strong>Mot de passe :</strong> visadam2024
-            </p>
-            <p className="text-xs text-purple-600 mt-2">
-              ⚠️ Changez ces identifiants après votre première connexion !
-            </p>
-          </div>
+
         </div>
 
         {/* Back to Site */}

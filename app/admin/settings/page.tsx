@@ -8,10 +8,9 @@ export default function AdminSettings() {
     siteName: 'ONG VISA DAM',
     logo: '',
     currency: 'FCFA',
-    whatsapp: '+229 90 62 96 93',
-    phone: '+229 97 42 47 42',
+    whatsapp: '+228 90 62 96 93',
     email: 'contact@ongvisa.org',
-    address: 'Bénin',
+    address: 'Togo',
     tiktok: '@ongvisa',
     twitter: '@ongvisa21',
     instagram: '@ongvisa2026',
@@ -150,22 +149,11 @@ export default function AdminSettings() {
                 value={settings.whatsapp}
                 onChange={(e) => setSettings({ ...settings, whatsapp: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500"
-                placeholder="+229 90 62 96 93"
+                placeholder="+228 90 62 96 93"
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                📞 Téléphone
-              </label>
-              <input
-                type="text"
-                value={settings.phone}
-                onChange={(e) => setSettings({ ...settings, phone: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500"
-                placeholder="+229 97 42 47 42"
-              />
-            </div>
+
 
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -189,7 +177,7 @@ export default function AdminSettings() {
                 value={settings.address}
                 onChange={(e) => setSettings({ ...settings, address: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500"
-                placeholder="Bénin"
+                placeholder="Togo"
               />
             </div>
           </div>

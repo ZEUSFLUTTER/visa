@@ -53,7 +53,7 @@ export default function AdminLayout({
             />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-white">VISA DAM</h1>
+            <h1 className="text-lg font-bold text-white">ONG VISA</h1>
             <p className="text-xs text-purple-300">Admin Panel</p>
           </div>
         </div>
