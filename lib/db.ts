@@ -23,72 +23,81 @@ export async function initDatabase() {
     return;
   }
   
-  const client = await pool.connect();
+  // En mode build Vercel, ne pas se connecter à la DB
+  if (process.env.VERCEL && process.env.NEXT_PHASE === 'phase-production-build') {
+    console.log('⚠️  Build phase detected - skipping database initialization');
+    initialized = true;
+    return;
+  }
+  
   try {
-    // Create cancers table
-    await client.query(`
-      CREATE TABLE IF NOT EXISTS cancers (
-        id VARCHAR(100) PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        color VARCHAR(20),
-        image TEXT,
-        shortDescription TEXT,
-        description TEXT,
-        epidemiology TEXT,
-        riskPopulation TEXT,
-        riskFactors JSONB,
-        symptoms JSONB,
-        screening JSONB,
-        testimonials JSONB,
-        resources JSONB
-      );
-    `).catch(err => {
-      if (err.code !== '42P07') throw err; // Ignorer "table already exists"
-    });
+    const client = await pool.connect();
+    try {
+      // Create cancers table
+      await client.query(`
+        CREATE TABLE IF NOT EXISTS cancers (
+          id VARCHAR(100) PRIMARY KEY,
+          name VARCHAR(255) NOT NULL,
+          color VARCHAR(20),
+          image TEXT,
+          shortDescription TEXT,
+          description TEXT,
+          epidemiology TEXT,
+          riskPopulation TEXT,
+          riskFactors JSONB,
+          symptoms JSONB,
+          screening JSONB,
+          testimonials JSONB,
+          resources JSONB
+        );
+      `).catch(err => {
+        if (err.code !== '42P07') throw err; // Ignorer "table already exists"
+      });
 
-    // Create testimonials table
-    await client.query(`
-      CREATE TABLE IF NOT EXISTS testimonials (
-        id VARCHAR(100) PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        image TEXT,
-        story TEXT NOT NULL,
-        cancerType VARCHAR(255),
-        date VARCHAR(50),
-        approved BOOLEAN DEFAULT TRUE
-      );
-    `).catch(err => {
-      if (err.code !== '42P07') throw err;
-    });
+      // Create testimonials table
+      await client.query(`
+        CREATE TABLE IF NOT EXISTS testimonials (
+          id VARCHAR(100) PRIMARY KEY,
+          name VARCHAR(255) NOT NULL,
+          image TEXT,
+          story TEXT NOT NULL,
+          cancerType VARCHAR(255),
+          date VARCHAR(50),
+          approved BOOLEAN DEFAULT TRUE
+        );
+      `).catch(err => {
+        if (err.code !== '42P07') throw err;
+      });
 
-    // Create blog posts table
-    await client.query(`
-      CREATE TABLE IF NOT EXISTS blog_posts (
-        id VARCHAR(100) PRIMARY KEY,
-        title VARCHAR(255) NOT NULL,
-        slug VARCHAR(255) UNIQUE NOT NULL,
-        excerpt TEXT,
-        content TEXT NOT NULL,
-        image TEXT,
-        author VARCHAR(255),
-        publishedDate VARCHAR(50),
-        readTime INTEGER,
-        category VARCHAR(100),
-        tags JSONB,
-        published BOOLEAN DEFAULT TRUE
-      );
-    `).catch(err => {
-      if (err.code !== '42P07') throw err;
-    });
+      // Create blog posts table
+      await client.query(`
+        CREATE TABLE IF NOT EXISTS blog_posts (
+          id VARCHAR(100) PRIMARY KEY,
+          title VARCHAR(255) NOT NULL,
+          slug VARCHAR(255) UNIQUE NOT NULL,
+          excerpt TEXT,
+          content TEXT NOT NULL,
+          image TEXT,
+          author VARCHAR(255),
+          publishedDate VARCHAR(50),
+          readTime INTEGER,
+          category VARCHAR(100),
+          tags JSONB,
+          published BOOLEAN DEFAULT TRUE
+        );
+      `).catch(err => {
+        if (err.code !== '42P07') throw err;
+      });
 
-    initialized = true;
-    console.log('Database initialized successfully');
+      initialized = true;
+      console.log('Database initialized successfully');
+    } finally {
+      client.release();
+    }
   } catch (error) {
-    // Ne pas bloquer si les tables existent déjà
-    console.log('Database initialization completed (tables may already exist)');
+    // Ne pas bloquer si les tables existent déjà ou si connexion échoue
+    console.log('Database initialization completed (tables may already exist or connection unavailable)');
     initialized = true;
-  } finally {
-    client.release();
   }
 }
 
