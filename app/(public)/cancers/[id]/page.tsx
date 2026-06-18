@@ -60,9 +60,15 @@ export default async function CancerDetailPage({ params }: { params: Promise<{ i
             >
               {cancer.name}
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              {cancer.description}
-            </p>
+            <div className="text-lg md:text-xl text-gray-700 leading-relaxed text-justify space-y-4 bg-white/60 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg">
+              {cancer.description.split('\n').map((paragraph: string, index: number) => (
+                paragraph.trim() && (
+                  <p key={index} className="leading-relaxed">
+                    {paragraph.trim()}
+                  </p>
+                )
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -81,24 +87,36 @@ export default async function CancerDetailPage({ params }: { params: Promise<{ i
 
               <div className="space-y-6">
                 {cancer.epidemiology && (
-                  <div className="p-6 bg-white rounded-xl shadow-md">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  <div className="p-6 md:p-8 bg-white rounded-xl shadow-md">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">
                       Épidémiologie
                     </h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      {cancer.epidemiology}
-                    </p>
+                    <div className="text-gray-700 leading-relaxed text-justify space-y-3">
+                      {cancer.epidemiology.split('\n').map((paragraph: string, index: number) => (
+                        paragraph.trim() && (
+                          <p key={index}>
+                            {paragraph.trim()}
+                          </p>
+                        )
+                      ))}
+                    </div>
                   </div>
                 )}
 
                 {cancer.riskPopulation && (
-                  <div className="p-6 bg-white rounded-xl shadow-md">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  <div className="p-6 md:p-8 bg-white rounded-xl shadow-md">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">
                       Population à Risque
                     </h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      {cancer.riskPopulation}
-                    </p>
+                    <div className="text-gray-700 leading-relaxed text-justify space-y-3">
+                      {cancer.riskPopulation.split('\n').map((paragraph: string, index: number) => (
+                        paragraph.trim() && (
+                          <p key={index}>
+                            {paragraph.trim()}
+                          </p>
+                        )
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
