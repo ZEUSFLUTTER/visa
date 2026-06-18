@@ -82,7 +82,16 @@ export default function AdminLayout({
 
         {/* Logout */}
         <div className="p-4 border-t border-purple-700">
-          <button className="flex items-center gap-3 px-5 py-3 rounded-xl text-purple-100 hover:bg-purple-700/50 transition-all w-full">
+          <button 
+            onClick={() => {
+              // Supprimer les données de session
+              localStorage.removeItem('admin_logged_in');
+              localStorage.removeItem('admin_username');
+              // Rediriger vers la page de login
+              window.location.href = '/admin/login';
+            }}
+            className="flex items-center gap-3 px-5 py-3 rounded-xl text-purple-100 hover:bg-purple-700/50 transition-all w-full"
+          >
             <LogOut className="w-5 h-5" />
             <span className="font-medium">Déconnexion</span>
           </button>
