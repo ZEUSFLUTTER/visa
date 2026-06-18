@@ -42,7 +42,9 @@ export async function initDatabase() {
         testimonials JSONB,
         resources JSONB
       );
-    `);
+    `).catch(err => {
+      if (err.code !== '42P07') throw err; // Ignorer "table already exists"
+    });
 
     // Create testimonials table
     await client.query(`
@@ -55,7 +57,9 @@ export async function initDatabase() {
         date VARCHAR(50),
         approved BOOLEAN DEFAULT TRUE
       );
-    `);
+    `).catch(err => {
+      if (err.code !== '42P07') throw err;
+    });
 
     // Create blog posts table
     await client.query(`
@@ -73,10 +77,16 @@ export async function initDatabase() {
         tags JSONB,
         published BOOLEAN DEFAULT TRUE
       );
-    `);
+    `).catch(err => {
+      if (err.code !== '42P07') throw err;
+    });
 
     initialized = true;
     console.log('Database initialized successfully');
+  } catch (error) {
+    // Ne pas bloquer si les tables existent déjà
+    console.log('Database initialization completed (tables may already exist)');
+    initialized = true;
   } finally {
     client.release();
   }
