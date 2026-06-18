@@ -34,7 +34,7 @@ export default function AdminBlog() {
     excerpt: '',
     content: '',
     image: '',
-    author: 'Admin VISA DAM',
+    author: 'Admin ONG VISA ',
     category: 'Actualités',
     tags: [] as string[],
     published: false,
