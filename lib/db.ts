@@ -11,6 +11,14 @@ let initialized = false;
 // Initialize database tables
 export async function initDatabase() {
   if (initialized) return;
+  
+  // Si pas de POSTGRES_URL, ne pas initialiser (mode build sans DB)
+  if (!process.env.POSTGRES_URL) {
+    console.log('⚠️  No POSTGRES_URL found - skipping database initialization');
+    initialized = true;
+    return;
+  }
+  
   const client = await pool.connect();
   try {
     // Create cancers table
@@ -73,6 +81,21 @@ export async function initDatabase() {
 // Cancers operations
 export async function getCancers() {
   await initDatabase();
+  
+  // Fallback si pas de DB : retourner les données du fichier JSON
+  if (!process.env.POSTGRES_URL) {
+    const fs = require('fs');
+    const path = require('path');
+    try {
+      const dataPath = path.join(process.cwd(), 'data', 'cancers.json');
+      const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      return data;
+    } catch (error) {
+      console.error('Error reading cancers.json:', error);
+      return [];
+    }
+  }
+  
   const result = await pool.query('SELECT * FROM cancers');
   return result.rows.map(row => ({
     ...row,
@@ -86,6 +109,21 @@ export async function getCancers() {
 
 export async function getCancerById(id: string) {
   await initDatabase();
+  
+  // Fallback si pas de DB : retourner les données du fichier JSON
+  if (!process.env.POSTGRES_URL) {
+    const fs = require('fs');
+    const path = require('path');
+    try {
+      const dataPath = path.join(process.cwd(), 'data', 'cancers.json');
+      const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      return data.find((c: any) => c.id === id) || null;
+    } catch (error) {
+      console.error('Error reading cancers.json:', error);
+      return null;
+    }
+  }
+  
   const result = await pool.query('SELECT * FROM cancers WHERE id = $1', [id]);
   const row = result.rows[0];
   if (!row) return null;
@@ -161,6 +199,20 @@ export async function deleteCancer(id: string) {
 // Testimonials operations
 export async function getTestimonials() {
   await initDatabase();
+  
+  // Fallback si pas de DB
+  if (!process.env.POSTGRES_URL) {
+    const fs = require('fs');
+    const path = require('path');
+    try {
+      const dataPath = path.join(process.cwd(), 'data', 'testimonials.json');
+      const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      return data;
+    } catch (error) {
+      return [];
+    }
+  }
+  
   const result = await pool.query('SELECT * FROM testimonials');
   return result.rows;
 }
@@ -221,6 +273,20 @@ export async function deleteTestimonial(id: string) {
 // Blog operations
 export async function getBlogPosts() {
   await initDatabase();
+  
+  // Fallback si pas de DB
+  if (!process.env.POSTGRES_URL) {
+    const fs = require('fs');
+    const path = require('path');
+    try {
+      const dataPath = path.join(process.cwd(), 'data', 'blog.json');
+      const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      return data;
+    } catch (error) {
+      return [];
+    }
+  }
+  
   const result = await pool.query('SELECT * FROM blog_posts');
   return result.rows.map(row => ({
     ...row,
@@ -230,6 +296,20 @@ export async function getBlogPosts() {
 
 export async function getBlogPostBySlug(slug: string) {
   await initDatabase();
+  
+  // Fallback si pas de DB
+  if (!process.env.POSTGRES_URL) {
+    const fs = require('fs');
+    const path = require('path');
+    try {
+      const dataPath = path.join(process.cwd(), 'data', 'blog.json');
+      const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      return data.find((p: any) => p.slug === slug) || null;
+    } catch (error) {
+      return null;
+    }
+  }
+  
   const result = await pool.query('SELECT * FROM blog_posts WHERE slug = $1', [slug]);
   const row = result.rows[0];
   if (!row) return null;
