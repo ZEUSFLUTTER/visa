@@ -3,7 +3,11 @@ import { Pool } from 'pg';
 // Create a PostgreSQL connection pool
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
-  ssl: process.env.POSTGRES_URL?.includes('localhost') ? undefined : { rejectUnauthorized: false },
+  ssl: process.env.POSTGRES_URL?.includes('localhost') 
+    ? undefined 
+    : { 
+        rejectUnauthorized: false // Nécessaire pour Supabase et autres services cloud
+      },
 });
 
 let initialized = false;
@@ -219,6 +223,20 @@ export async function getTestimonials() {
 
 export async function getApprovedTestimonials() {
   await initDatabase();
+  
+  // Fallback si pas de DB
+  if (!process.env.POSTGRES_URL) {
+    const fs = require('fs');
+    const path = require('path');
+    try {
+      const dataPath = path.join(process.cwd(), 'data', 'testimonials.json');
+      const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+      return data.filter((t: any) => t.approved !== false);
+    } catch (error) {
+      return [];
+    }
+  }
+  
   const result = await pool.query('SELECT * FROM testimonials WHERE approved = TRUE');
   return result.rows;
 }
