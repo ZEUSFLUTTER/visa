@@ -18,7 +18,7 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { href: '/cancers', label: 'Tous les Cancers' },
+    { href: '/cancers', label: 'Cancers Féminins' },
     { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
   ];

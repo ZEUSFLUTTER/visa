@@ -86,7 +86,7 @@ export default function ContactPage() {
                       </h3>
                       <p className="text-gray-600">+228 90 62 96 93</p>
                       <p className="text-sm text-gray-500 mt-1">
-                        Lun-Ven, 9h-18h
+                        Lundi-Vendredi, 8h-17h
                       </p>
                     </div>
                   </div>
@@ -110,9 +110,8 @@ export default function ContactPage() {
                         Horaires
                       </h3>
                       <p className="text-gray-600">
-                        Lundi - Vendredi: 9h - 18h<br />
-                        Samedi: 10h - 14h<br />
-                        Dimanche: Fermé
+                        Lundi - Vendredi: 8h - 17h<br />
+                        Samedi - Dimanche: Fermé
                       </p>
                     </div>
                   </div>
